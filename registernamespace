@@ -1,0 +1,27 @@
+var TT = function(){
+  return {
+    namespace:function(sNameSpace){
+      if(!sNameSpace  || !sNameSpace.length){
+        return null;
+      }
+      
+      var levels = sNameSpace.split(".");
+      var currentNS = TT;
+      for(var i = (levels[0] == "TT") ? 1 : 0; i < levels.length; ++i){
+        currentNS[levels[i]] = currentNS[levels[i]] || {};
+        currentNS = currentNS[levels[i]];
+      }
+      
+      return currentNS;
+    }
+  }
+}
+
+
+
+
+
+TT.namespace("TT.sandyz");
+TT.sandyz.example = function(){
+
+}
